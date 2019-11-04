@@ -33,6 +33,10 @@ RSpec.describe Residence, :type => :model do
     record.title = 'Something'
     record.valid?
     record.errors[:title]= :should_not, include("can't be blank")
+
+    record.description = 'aaaa'
+    record.valid?
+    record.errors[:description]= :should_not, include("description must be at least 25 words")
   end
 
 end
