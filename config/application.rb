@@ -13,3 +13,5 @@ module Realestate
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# config.factory_bot.definition_file_paths = ['lib/templates/factory_bot/model/factories.erb']
