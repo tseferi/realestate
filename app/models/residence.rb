@@ -6,12 +6,12 @@ class Residence < ApplicationRecord
 
   validates :title, length: {is: 5}
   # validates :description, length: {minimum: 25}
-  validates :available, length: {minimum: 1}
+  validates :available, inclusion: [true, false]
   validates :unit, length: {is: 4}
-  validates :rent, length: {in: 4..6}
+  validates :rent, length: { within: 4..6 }
 
-  validates :description, length: {minimum: 25, 
-    too_short: "%{count} description must be at least 25 words"}
+   validates :description, length: {minimum: 25,  
+     too_short: "Description must be at least %{count} words"}
 
   validates_each :title, :description do |category, attr, value|
     category.errors.add(attr, 'must start with upper case')if
